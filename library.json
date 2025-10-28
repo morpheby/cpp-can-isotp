@@ -1,0 +1,27 @@
+{
+    "name": "cpp-can-isotp",
+    "keywords": "isotp",
+    "version": "0.1",
+    "description": "C++ implementation of CAN ISO 15765-2 also known as CAN ISO transport protocol.",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/morpheby/fmt.git"
+    },
+    "authors": {
+        "name": "Łukasz Iwaszkiewicz"
+    },
+    "build": {
+        "includeDir": "include",
+        "srcDir": "src"
+    },
+    "examples": [
+        "test/example/main.cc"
+    ],
+    "frameworks": "*",
+    "platforms": "*",
+    "dependencies": {
+        "morpheby/fmt": "https://github.com/morpheby/fmt",
+        "ETLCPP/etl": "https://github.com/ETLCPP/etl#20.44.1"
+    }
+}
