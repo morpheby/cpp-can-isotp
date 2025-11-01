@@ -185,7 +185,7 @@ public:
          */
         void setSeparationTime (uint8_t s)
         {
-                Expects ((s >= 0 && s <= 0x7f) || (s >= 0xf1 && s <= 0xf9));
+                assert ((s >= 0 && s <= 0x7f) || (s >= 0xf1 && s <= 0xf9));
                 separationTime = s;
         }
 

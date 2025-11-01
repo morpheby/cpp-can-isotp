@@ -24,7 +24,7 @@ struct CanFrame {
         template <typename... T>
         CanFrame (uint32_t id, bool extended, T... t) : id (id), extended (extended), data{uint8_t (t)...}, dlc (sizeof...(t))
         {
-                Expects ((id & 0xE0000000) == 0);
+                assert ((id & 0xE0000000) == 0);
         }
 
         uint32_t id;
