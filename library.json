@@ -6,7 +6,7 @@
     "license": "MIT",
     "repository": {
         "type": "git",
-        "url": "https://github.com/morpheby/fmt.git"
+        "url": "https://github.com/morpheby/cpp-can-isotp.git"
     },
     "authors": {
         "name": "Łukasz Iwaszkiewicz"
