@@ -537,12 +537,15 @@ template <typename TraitsT> bool TransportProtocol<TraitsT>::onCanNewFrame (cons
 {
         // Address as received in the CAN frame frame.
         auto theirAddress = AddressEncoderT::fromFrame (frame);
-        Address const &outgoingAddress = myAddress;
+        Address outgoingAddress = myAddress;
 
         // Check if the received frame is meant for us.
         if (!theirAddress || !AddressEncoderT::matches (*theirAddress, myAddress)) {
                 return false;
         }
+
+        // Update reply address with originating address
+        outgoingAddress.setTargetAddress(theirAddress->getSourceAddress());
 
         switch (AddressTraitsT::getType (frame)) {
         case IsoNPduType::SINGLE_FRAME: {
