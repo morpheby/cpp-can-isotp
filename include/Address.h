@@ -183,16 +183,16 @@ struct Normal29AddressEncoder {
 
 struct NormalFixed29AddressEncoder {
 
-        static constexpr uint32_t NORMAL_FIXED_29 = 0x018DA0000;
+        static constexpr uint32_t NORMAL_FIXED_29 = 0x18DA0000;
         static constexpr uint32_t NORMAL_FIXED_29_MASK = 0x1FFE0000;
-        static constexpr uint32_t N_TA_MASK = 0x00000ff00;
+        static constexpr uint32_t N_TA_MASK = 0x0000ff00;
         static constexpr uint32_t N_TATYPE_MASK = 0x10000;
-        static constexpr uint32_t N_SA_MASK = 0x0000000ff;
+        static constexpr uint32_t N_SA_MASK = 0x000000ff;
         static constexpr uint32_t MAX_N = 0xff; /// Maximum value that can be stored in either N_TA, N_SA.
 
         static uint32_t idFromAddress(const Address &a) {
                 return NORMAL_FIXED_29 | ((a.getTargetAddressType () == Address::TargetAddressType::FUNCTIONAL) ? (N_TATYPE_MASK) : (0))
-                         | a.getTargetAddress () << 8 | a.getSourceAddress ();
+                         | (a.getTargetAddress () << 8) | (a.getSourceAddress ());
         }
 
         /**

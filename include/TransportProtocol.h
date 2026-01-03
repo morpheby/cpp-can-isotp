@@ -172,6 +172,8 @@ public:
         void setMyAddress (Address const &a) { myAddress = a; }
         Address const &getMyAddress () const { return myAddress; }
 
+        bool isIdle () const { return stateMachine.getState () == StateMachine::State::DONE; }
+
         /**
          * This value will be sent in first flow control flow frame, and it tells the peer
          * how long to wait between sending consecutive frames. This is to offload the receiver.
