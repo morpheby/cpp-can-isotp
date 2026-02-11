@@ -324,7 +324,7 @@ private:
                 uint16_t blocksSent{};
                 uint8_t sequenceNumber{1};
                 uint8_t receivedBlockSize{};
-                uint32_t receivedSeparationTimeUs{};
+                int32_t receivedSeparationTimeUs{};
                 Timer separationTimer{};
                 Timer bsCrTimer{};
                 uint8_t waitFrameNumber{};
