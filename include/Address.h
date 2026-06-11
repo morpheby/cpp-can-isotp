@@ -102,8 +102,16 @@ private:
 
 inline bool operator< (Address const &a, Address const &b)
 {
-        return a.getTxId () < b.getTxId () && a.getTargetAddress () < b.getTargetAddress ()
-                && a.getNetworkAddressExtension () < b.getNetworkAddressExtension ();
+        if (a.getTxId () != b.getTxId ()) {
+                return a.getTxId () < b.getTxId ();
+        }
+        if (a.getSourceAddress () != b.getSourceAddress ()) {
+                return a.getSourceAddress () < b.getSourceAddress ();
+        }
+        if (a.getTargetAddress () != b.getTargetAddress ()) {
+                return a.getTargetAddress () < b.getTargetAddress ();
+        }
+        return a.getNetworkAddressExtension () < b.getNetworkAddressExtension ();
 }
 
 /****************************************************************************/
