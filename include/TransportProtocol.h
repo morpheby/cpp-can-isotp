@@ -270,6 +270,7 @@ private:
                 Result timeoutReason{};          /// It timer expired, what was the result.
         };
 
+public:
         /*
          * StateMachine class implements an algorithm for sending a single ISO message, which
          * can be up to 4095B long and thus has to be divided into multiple CAN frames.
@@ -314,6 +315,9 @@ private:
                 Status run (CanFrameWrapperType const *frame = nullptr);
                 State getState () const { return state; }
 
+                Address getAddress () const { return myAddress; }
+                IsoMessageT const &getMessage () const { return message; }
+
         private:
                 TransportProtocol &tp;
                 CanOutputInterface &outputInterface;
@@ -329,6 +333,13 @@ private:
                 Timer bsCrTimer{};
                 uint8_t waitFrameNumber{};
         };
+
+
+        StateMachine const &getSendStateMachine() const { return stateMachine; }
+
+#ifndef UNIT_TEST
+private:
+#endif
 
         /*---------------------------------------------------------------------------*/
 
